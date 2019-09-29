@@ -6,6 +6,7 @@ import store from './store';
 
 import PageSearch from './pages/PageSearch';
 import PageSearchResults from './pages/PageSearchResults';
+import PageInformation from './pages/PageInformation';
 
 import {
   PAGE_DEFAULT,
@@ -20,8 +21,8 @@ function App() {
       <BrowserRouter>
           <Switch>
             <Route path={ PAGE_RESULTS } component={ PageSearchResults } />
+            <Route path={ PAGE_INFORMATION } component={ PageInformation } />
             <Route path={ PAGE_SEARCH } component={ PageSearch } />
-            <Route path={ PAGE_INFORMATION } component={ PageSearch } />
             <Route path={ PAGE_DEFAULT } component={ PageSearch } />
           </Switch>
       </BrowserRouter>

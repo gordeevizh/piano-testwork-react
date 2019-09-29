@@ -1,2 +1,2 @@
-import PageSearchInformation from './PageSearchInformation';
-export default PageSearchInformation;
+import PageInformation from './PageInformation';
+export default PageInformation;

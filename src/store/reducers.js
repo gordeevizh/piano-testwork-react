@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux'
 import {
   ITEMS_IS_LOADING,
+  GET_ANSWERS,
   GET_BY_AUTHOR,
   GET_BY_TAG,
   GET_SEARCH,
@@ -40,10 +41,20 @@ function searchResults(state = [], action) {
   }
 }
 
+function answers(state = [], action) {
+  switch (action.type) {
+    case GET_ANSWERS:
+      return Object.assign({}, state, { items: action.items });
+    default:
+      return state;
+  }
+}
+
 const searchReducer = combineReducers({
   isLoading,
   searchResults,
   quickResults,
+  answers,
   errors,
 })
 

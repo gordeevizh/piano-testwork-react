@@ -1,7 +1,8 @@
 import { generatePath } from 'react-router-dom';
-import { API_USER_QUESTIONS, API_QUESTIONS_BY_TAG, API_SEARCH } from '../constants/api';
-import { quickData, searchResult } from './mock';
+import { API_USER_QUESTIONS, API_QUESTIONS_BY_TAG, API_SEARCH, API_ANSWERS } from '../constants/api';
+import { quickData, searchResult, answers } from './mock';
 
+export const GET_ANSWERS = 'GET_ANSWERS';
 export const GET_BY_AUTHOR = 'GET_BY_AUTHOR';
 export const GET_BY_TAG = 'GET_BY_TAG';
 export const GET_SEARCH = 'GET_SEARCH';
@@ -27,9 +28,23 @@ function loadData(url, dispatch) {
     })
 }
 
+export function getAnswers(questionId) {
+  return (dispatch) => {
+    /* const url = generatePath(API_ANSWERS, { questionId });
+    
+    dispatch(itemsIsLoading(true));
+    loadData(url, dispatch)
+      .then((res) => {
+        dispatch({ type: GET_ANSWERS, items: res.items });
+        dispatch(itemsIsLoading(false));
+      }) */
+      dispatch({type: GET_ANSWERS, items: answers.items });
+  };  
+}
+
 export function getSearchResults(query) {
   return (dispatch) => {
-    /* const url = generatePath(API_SEARCH, { query: decodeURI(query) });
+    /* const url = generatePath(API_SEARCH, { query: query });
     
     dispatch(itemsIsLoading(true));
     loadData(url, dispatch)

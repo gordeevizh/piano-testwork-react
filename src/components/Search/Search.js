@@ -9,7 +9,7 @@ function Search(props) {
 
   const handleSearch = (e) => {
     e.preventDefault();
-    props.history.push(generatePath(PAGE_RESULTS, { query: queryValue}));
+    props.history.push(generatePath(PAGE_RESULTS, { query: encodeURI(queryValue)}));
   }
 
   const handleChangeSearchValue = (e) => {
