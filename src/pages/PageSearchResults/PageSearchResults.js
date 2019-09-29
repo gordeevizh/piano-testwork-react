@@ -1,26 +1,22 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { withRouter } from 'react-router-dom';
-import { searchResult } from './mock';
-import ResultsTable from '../../components/ResultsTable'
+import { useSelector, useDispatch } from "react-redux";
+import { getSearchResults } from '../../store/actions';
+import ResultsTable from '../../components/ResultsTable';
+import './PageSearchResults.style.css';
 
 const bemCn = 'search-results'
 
 
 function PageSearchResults(props) {
-  const [results, setResults] = useState(null);
-/*   const [error, setError] = useState(null); */
+  const dispatch = useDispatch();
+  const results = useSelector(state => state.searchResults.items);
+  const quickResults = useSelector(state => state.quickResults.items);
   const query = props.match.params.query;
 
   useEffect (()=> {
-    /* fetch(`http://api.stackexchange.com/2.2/search/advanced?order=desc&sort=activity&q=${query}&site=stackoverflow`)
-    .then(function (response) {
-      setResults(response.data);
-    })
-    .catch(function (error) {
-      setError(error);
-    }) */
-    setResults(searchResult);
-  }, [query])
+    dispatch(getSearchResults(query));
+  }, [query, dispatch])
 
   return (
     <section>
@@ -28,7 +24,8 @@ function PageSearchResults(props) {
 
       {results ? (
         <div className={ bemCn }>
-          <ResultsTable items={ results.items }/>
+          <ResultsTable items={ results } />
+          <ResultsTable items={ quickResults } />
         </div>
       ) : (
         'loading...'
@@ -37,4 +34,4 @@ function PageSearchResults(props) {
   );
 }
 
-export default withRouter(PageSearchResults)
+export default withRouter(PageSearchResults);
