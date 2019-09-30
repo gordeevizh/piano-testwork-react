@@ -8,10 +8,11 @@ const bemCn = 'answer';
 function Answer(props) {
   const { 
     answer,
+    className,
   } = props;
 
   return !!answer && (
-    <section key={ answer.answer_id } className={ bemCn } >
+    <section className={ `${bemCn} ${className}` } >
       <div className={ `${bemCn}__user-avatar` } >
         <a 
           href={ answer.owner.link } 

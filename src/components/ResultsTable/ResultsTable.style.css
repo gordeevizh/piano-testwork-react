@@ -12,12 +12,16 @@
   cursor: pointer;
 }
 
+.results-table__list-item:nth-child(2n) {
+  background: #f7f7f7;
+}
+
 .results-table__list-title,
 .results-table__list-item {
   display: flex;
   justify-content: space-between;
   list-style-type: none;
-  padding: 0 5px;
+  padding: 10px;
 }
 
 .results-table__list-title > :nth-child(1),

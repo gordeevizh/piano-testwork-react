@@ -1,0 +1,4 @@
+.page-information__answer:nth-child(2n){
+  background: #f7f7f7;
+  padding: 20px 0 30px;
+}

@@ -3,6 +3,9 @@ import { withRouter } from 'react-router-dom';
 import { useSelector, useDispatch } from "react-redux";
 import { getAnswers } from '../../store/actions';
 import Answer from '../../components/Answer/Answer';
+import './PageInformation.style.css';
+
+const bemCn = 'page-information';
 
 
 function PageInformation(props) {
@@ -15,10 +18,10 @@ function PageInformation(props) {
   }, [questionId, dispatch])
 
   return (
-    <section>
+    <section className={ bemCn }>
       <h1>Answers</h1>
       { !!results && (
-        results.map(item => <Answer answer={ item } /> )
+        results.map(item => <Answer answer={ item } className={ `${bemCn}__answer` } key={ item.answer_id }/> )
       ) }
     </section>
   );
