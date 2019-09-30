@@ -1,5 +1,15 @@
 .results-table {
   width: 50%;
+  padding: 0 10px;
+}
+
+.results-table__list-title {
+  font-weight: 600;
+  color: #444444;
+}
+
+.results-table__list-item {
+  cursor: pointer;
 }
 
 .results-table__list-title,
@@ -29,11 +39,16 @@
   width: 10%;
   min-width: 60px;
   padding-right: 10px;
+  text-align: center;
 }
 
 .results-table__list-title > :nth-child(4),
 .results-table__list-item > :nth-child(4) {
   width: 20%;
   min-width: 100px;
+}
+
+.results-table__list-item > :nth-child(2):hover {
+  text-decoration: underline;
 }
 

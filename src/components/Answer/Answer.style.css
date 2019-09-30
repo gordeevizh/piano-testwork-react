@@ -1,0 +1,19 @@
+.answer {
+  display: flex;
+  margin: 10px 20px 30px;
+}
+
+.answer__user-avatar {
+  margin: 0 20px;
+  width: 100px;
+  height: 100px;
+}
+
+.answer__user-avatar img {
+  width: 100px;
+  height: 100px;
+}
+
+.answer__user-name {
+  margin-top: 0;
+}
